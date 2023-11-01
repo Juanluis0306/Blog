@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Blog</string>
+    <string name="search_bar">Buscar</string>
+    <string name="empty_blogs">Sin blogs publicados</string>
+    <string name="register_new_blog">Agregar un nuevo blog</string>
+    <string name="titulo_register">Título</string>
+    <string name="content_register">Contenido</string>
+    <string name="author_register">Autor</string>
+    <string name="add_blog">Agregar</string>
+    <string name="not_register_blog">No Registrar</string>
+    <string name="month">Mes</string>
+    <string name="day">Día</string>
+    <string name="year">Año</string>
+</resources>

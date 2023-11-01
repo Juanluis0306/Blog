@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="size_icon_splash">300dp</dimen>
+    <dimen name="size_icon_login">120dp</dimen>
+    <dimen name="margin_icon_login">20dp</dimen>
+    <dimen name="padding_icon">12dp</dimen>
+    <dimen name="size_text_input">60dp</dimen>
+    <dimen name="size_text_registration">12sp</dimen>
+    <dimen name="margin_button_login">64dp</dimen>
+    <dimen name="margin_button_login_bottom">32dp</dimen>
+    <dimen name="size_text_registrer">18sp</dimen>
+    <dimen name="estandar_size_text">14sp</dimen>
+    <dimen name="subtitle_text_size">20sp</dimen>
+    <dimen name="title_text_size">24sp</dimen>
+    <dimen name="title_item_text_size">16sp</dimen>
+    <dimen name="item_date_text_size">11sp</dimen>
+</resources>

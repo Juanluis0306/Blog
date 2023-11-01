@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#202d96</color>
+    <color name="colorSecondary">#206796</color>
+    <color name="accent">#206796</color>
+
+    <color name="background_splash">#0d3749</color>
+    <color name="background_login">#54494C</color>
+    <color name="error">#FFDF174D</color>
+    <color name="in_time">#FE780A</color>
+    <color name="edittext_color">#45484A</color>
+    <color name="light_background">#ffffff</color>
+</resources>

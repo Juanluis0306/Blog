@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_splash"
+        tools:context=".activities.RegisterActivity">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="64dp"
+            app:cardCornerRadius="40dp"
+            app:cardElevation="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtTitleInfo">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/backgroun_registrer">
+
+
+                <EditText
+                    android:id="@+id/edTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/size_text_input"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="64dp"
+                    android:layout_marginEnd="24dp"
+                    android:background="@drawable/custom_input"
+                    android:ems="10"
+                    android:gravity="center_vertical"
+                    android:hint="@string/titulo_register"
+                    android:inputType="textPersonName"
+                    android:paddingStart="@dimen/padding_icon"
+                    android:paddingEnd="@dimen/padding_icon"
+                    android:textColor="@color/edittext_color"
+                    android:textSize="@dimen/size_text_registrer"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:autofillHints="" />
+
+                <EditText
+                    android:id="@+id/edContent"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/size_text_input"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="24dp"
+                    android:background="@drawable/custom_input"
+                    android:ems="10"
+                    android:hint="@string/content_register"
+                    android:inputType="textPersonName"
+                    android:paddingStart="@dimen/padding_icon"
+                    android:paddingEnd="@dimen/padding_icon"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/edittext_color"
+                    android:textSize="@dimen/size_text_registrer"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edDate" />
+
+                <EditText
+                    android:id="@+id/edDate"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/size_text_input"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="24dp"
+                    android:background="@drawable/custom_input"
+                    android:ems="10"
+                    android:focusable="false"
+                    android:gravity="center_vertical"
+                    android:hint="@string/author_register"
+                    android:inputType="date"
+                    android:paddingStart="@dimen/padding_icon"
+                    android:paddingEnd="@dimen/padding_icon"
+                    android:textColor="@color/edittext_color"
+                    android:textSize="@dimen/size_text_registrer"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edTitle" />
+
+
+                <Button
+                    android:id="@+id/btnRegister"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="64dp"
+                    android:layout_marginRight="64dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/round"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="Agregar"
+                    android:textColor="@color/light_background"
+                    android:textSize="@dimen/estandar_size_text"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/txtReturn"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/txtReturn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="32dp"
+                    android:text="@string/not_register_blog"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/size_text_registration"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="16dp"
+            android:scaleType="fitXY"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/logo" />
+
+        <TextView
+            android:id="@+id/txtTitleInfo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:background="@drawable/custom_input"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="@string/register_new_blog"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/subtitle_text_size"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
