@@ -1,7 +1,10 @@
 package com.jl.blog.activities
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -12,31 +15,28 @@ import android.view.WindowInsetsController
 import android.view.WindowManager
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import androidx.core.view.isVisible
-import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.LinearLayoutManager
+import cn.pedant.SweetAlert.SweetAlertDialog
 import com.jl.blog.R
 import com.jl.blog.adapter.BlogAdapter
 import com.jl.blog.database.entities.BlogEntity
 import com.jl.blog.databinding.ActivityMainBinding
 import com.jl.blog.domain.model.Blog
-import com.jl.blog.model.ResponseBlogs
 import com.jl.blog.utils.RecyclerItemClickListener
 import com.jl.blog.viewmodel.RegisterViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), BlogAdapter.OnItemClickListener {
 
     private lateinit var binding: ActivityMainBinding
     private var mAdapter: BlogAdapter? = null
-    private var list: MutableList<BlogEntity>? = null
     private val viewModel: RegisterViewModel by viewModels()
     private var blogEntitySelect: BlogEntity? = null
     private var listBlogEntity: ArrayList<Blog> = arrayListOf()
-    private var listBlogsUser: LiveData<ResponseBlogs>? = null
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,7 +57,12 @@ class MainActivity : AppCompatActivity() {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN
             )
         }
-        viewModel.onCreate()
+        val isConnection = isNetworkAvailable(this)
+        if (!isNetworkAvailable(this)) {
+            showErrorRed()
+            binding.fab.visibility = View.GONE
+        }
+        viewModel.onCreate(isConnection)
         listeners()
     }
 
@@ -77,7 +82,6 @@ class MainActivity : AppCompatActivity() {
         viewModel.listBlogEntity.observe(this) {
             listBlogEntity.clear()
             listBlogEntity.addAll(it)
-            Log.i("Tag123", "Valores insertados correctamente  *********  " + listBlogEntity.size)
             if (listBlogEntity.isEmpty()) {
                 binding.rvTask.visibility = View.GONE
                 binding.txtListEmpty.visibility = View.VISIBLE
@@ -87,16 +91,43 @@ class MainActivity : AppCompatActivity() {
                 mAdapter!!.notifyDataSetChanged()
             }
         }
-        binding.rvTask.addOnItemTouchListener(RecyclerItemClickListener(this) { view, position ->
-            val btnMenu: ImageView = view.findViewById(R.id.btnMenu)
-            btnMenu.setOnClickListener {
 
+        binding.edSearch.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
             }
-        }
-        )
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                mAdapter!!.filter.filter(newText)
+                return false
+            }
+
+        })
     }
 
+    private fun isNetworkAvailable(context: Context) =
+        (context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager).run {
+            getNetworkCapabilities(activeNetwork)?.run {
+                hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)
+                        || hasTransport(NetworkCapabilities.TRANSPORT_WIFI)
+                        || hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET)
+            } ?: false
+        }
 
+    private fun showErrorRed() {
+        SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
+            .setTitleText("Oops...")
+            .setContentText("Sin conexión a internet!")
+            .show()
+    }
     override fun onBackPressed() {
+    }
+
+    override fun onItemClick(item: Blog) {
+        val intent = Intent(this, ShowDetailActivity::class.java)
+        intent.putExtra("EXTRA_BLOG_CONTENT", item.content)
+        intent.putExtra("EXTRA_BLOG_TITLE", item.title)
+        intent.putExtra("EXTRA_BLOG_AUTHOR", item.author)
+        startActivity(intent)
     }
 }

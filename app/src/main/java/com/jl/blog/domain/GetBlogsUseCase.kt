@@ -1,5 +1,8 @@
 package com.jl.blog.domain
 
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import com.jl.blog.database.BlogRepository
 import com.jl.blog.database.dao.BlogDao
 import com.jl.blog.database.entities.BlogEntity

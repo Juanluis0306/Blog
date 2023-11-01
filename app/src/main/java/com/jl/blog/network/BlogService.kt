@@ -10,7 +10,7 @@ class BlogService @Inject constructor(private val api: ApiInterface) {
     suspend fun getBlogs(): List<Items> {
         return withContext(Dispatchers.IO) {
             val response = api.getAllBlogsUser()
-            response.body() ?: emptyList()
+            response.body()?.items ?: emptyList()
         }
     }
 

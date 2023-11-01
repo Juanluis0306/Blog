@@ -18,7 +18,7 @@ class BlogRepository @Inject constructor(
         return response.map { it.toDomain() }
     }
 
-    fun updateData(listBlogEntity: List<BlogEntity>?) {
+    suspend fun updateData(listBlogEntity: List<BlogEntity>?) {
         blogDao.updateData(listBlogEntity)
     }
 

@@ -8,12 +8,12 @@ import com.jl.blog.domain.model.Blog
 interface BlogDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun updateData(list: List<BlogEntity>?)
+    suspend fun updateData(list: List<BlogEntity>?)
 
     @Query("SELECT * FROM blog_table ORDER BY date DESC")
-    fun getAllBlogs(): List<BlogEntity>
+    suspend fun getAllBlogs(): List<BlogEntity>
 
     @Query("DELETE FROM blog_table")
-    fun deleteAllBlogs()
+    suspend fun deleteAllBlogs()
 
 }

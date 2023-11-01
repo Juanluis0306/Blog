@@ -12,6 +12,7 @@
     app:layout_constraintStart_toStartOf="parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/light_background">
@@ -114,7 +115,8 @@
             android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_menu" />
+            app:srcCompat="@drawable/ic_menu"
+            app:tint="@color/colorPrimary" />
 
 
         <TextView
@@ -139,9 +141,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="8dp"
-            android:maxLength="40"
-            android:maxLines="1"
-            android:singleLine="true"
+            android:maxLength="70"
             android:text="Descripción de la captura de video de la prueba del video"
             android:textSize="@dimen/estandar_size_text"
             app:layout_constraintEnd_toEndOf="parent"
@@ -149,12 +149,16 @@
             app:layout_constraintTop_toBottomOf="@+id/txtTitle" />
 
         <TextView
-            android:id="@+id/txtHour"
+            android:id="@+id/txtAuthor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="13:05"
+            android:layout_marginBottom="8dp"
+            android:text="Juan"
+            android:textColor="@color/colorPrimary"
             android:textSize="@dimen/estandar_size_text"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/txtDescription"
             app:layout_constraintTop_toBottomOf="@+id/txtDescription" />
 
