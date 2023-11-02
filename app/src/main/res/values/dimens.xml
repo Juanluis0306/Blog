@@ -5,7 +5,7 @@
     <dimen name="margin_icon_login">20dp</dimen>
     <dimen name="padding_icon">12dp</dimen>
     <dimen name="size_text_input">60dp</dimen>
-    <dimen name="size_text_registration">12sp</dimen>
+    <dimen name="size_text_registration">18sp</dimen>
     <dimen name="margin_button_login">64dp</dimen>
     <dimen name="margin_button_login_bottom">32dp</dimen>
     <dimen name="size_text_registrer">18sp</dimen>

@@ -69,10 +69,10 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/edDate" />
+                    app:layout_constraintTop_toBottomOf="@+id/edAuthor" />
 
                 <EditText
-                    android:id="@+id/edDate"
+                    android:id="@+id/edAuthor"
                     android:layout_width="0dp"
                     android:layout_height="@dimen/size_text_input"
                     android:layout_marginStart="24dp"
@@ -80,10 +80,9 @@
                     android:layout_marginEnd="24dp"
                     android:background="@drawable/custom_input"
                     android:ems="10"
-                    android:focusable="false"
                     android:gravity="center_vertical"
                     android:hint="@string/author_register"
-                    android:inputType="date"
+                    android:inputType="text"
                     android:paddingStart="@dimen/padding_icon"
                     android:paddingEnd="@dimen/padding_icon"
                     android:textColor="@color/edittext_color"

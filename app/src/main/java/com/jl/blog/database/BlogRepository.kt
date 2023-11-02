@@ -5,6 +5,7 @@ import com.jl.blog.database.entities.BlogEntity
 import com.jl.blog.domain.model.Blog
 import com.jl.blog.domain.model.toDomain
 import com.jl.blog.model.Items
+import com.jl.blog.model.ResponseSaveBlog
 import com.jl.blog.network.BlogService
 import javax.inject.Inject
 

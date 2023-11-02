@@ -7,24 +7,19 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.view.WindowInsets
 import androidx.activity.viewModels
 import android.view.WindowInsetsController
 import android.view.WindowManager
-import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import cn.pedant.SweetAlert.SweetAlertDialog
-import com.jl.blog.R
 import com.jl.blog.adapter.BlogAdapter
-import com.jl.blog.database.entities.BlogEntity
 import com.jl.blog.databinding.ActivityMainBinding
 import com.jl.blog.domain.model.Blog
-import com.jl.blog.utils.RecyclerItemClickListener
 import com.jl.blog.viewmodel.RegisterViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
@@ -35,7 +30,6 @@ class MainActivity : AppCompatActivity(), BlogAdapter.OnItemClickListener {
     private lateinit var binding: ActivityMainBinding
     private var mAdapter: BlogAdapter? = null
     private val viewModel: RegisterViewModel by viewModels()
-    private var blogEntitySelect: BlogEntity? = null
     private var listBlogEntity: ArrayList<Blog> = arrayListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -119,8 +113,6 @@ class MainActivity : AppCompatActivity(), BlogAdapter.OnItemClickListener {
             .setTitleText("Oops...")
             .setContentText("Sin conexión a internet!")
             .show()
-    }
-    override fun onBackPressed() {
     }
 
     override fun onItemClick(item: Blog) {
