@@ -14,4 +14,7 @@ toda la estructura para su visualización en código para el consumo
 # Puntos terminado
 De los demás puntos se lograron completar con éxito
 
+# Rama
+Todo el desarrollo se encuentra en la rama Maste
+
 ---
